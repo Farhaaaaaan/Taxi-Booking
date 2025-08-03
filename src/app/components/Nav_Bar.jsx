@@ -12,7 +12,7 @@ import {
   ProfileOutlined,
   PhoneOutlined,
 } from '@ant-design/icons';
-import Logo from '../../../public/images/logo.png';
+import Logo from '../../../public/images/loggoo.png';
 
 import { usePathname } from 'next/navigation';
 
@@ -28,25 +28,25 @@ export default function Navbar() {
   ];
 
   const tabBase =
-    'relative inline-flex items-center gap-2 px-3 py-2 rounded-lg font-medium !text-black transition-[transform,background,color,box-shadow] duration-200 ease-out';
+    'relative inline-flex h-[90%] self-end items-center gap-2 px-3 py-2 rounded-t-lg font-medium !text-black transition-[transform,background,color,box-shadow] duration-200 ease-out';
   const tabHover =
-    'hover:bg-gradient-to-t from-white via-white to-gray-300 hover:shadow-sm hover:-translate-y-[1px] hover:text-black hover:shadow-3xl';
+    'hover:scale-105 hover:shadow-sm hover:-translate-y-[1px] hover:text-black hover:shadow-[0_1px_10px_rgba(0,0,0,0.05)] ';
   const tabUnderline =
-    "after:content-[''] after:absolute after:left-1/2 after:bottom-1 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-orange-600 after:transition-[width] after:duration-200 hover:after:w-3/4";
-
-  const isActive = (p) => (pathname === p ? 'bg-white/80 shadow-sm text-black after:w-3/4' : 'text-white');
+    "after:content-[''] after:absolute after:left-1/2 after:bottom-1 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-blackGray after:transition-[width] after:duration-200 hover:after:w-3/4";
+  
+  const isActive = (p) => (pathname === p ? 'shadow-sm text-black after:w-3/4' : 'text-white');
 
   return (
-    <nav className="sticky top-10 mx-5 mb-6 z-10 bg-white backdrop-blur-2xl border-b  border-white/40 shadow-[0_1px_10px_rgba(0,0,0,0.05)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+    <nav className="sticky top-10 mx-14 mb-6 z-10 bg-white/90 backdrop-blur-2xl shadow-[0_1px_10px_rgba(0,0,0,0.05)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
-          <Image src={Logo} alt="TaxiBook logo" className="w-10 h-10 rounded-xl ring-1 ring-orange-600 bg-amber-600" priority />
-          <span className="text-2xl font-extrabold tracking-tight text-amber-600 text-shadow-amber-100 text-shadow-md">TaxiBook</span>
+          <Image src={Logo} alt="TaxiBook logo" className="w-10 h-10 rounded-xl  bg-blackGray" priority />
+          <span className="text-2xl font-extrabold tracking-tight text-blackGray text-shadow-amber-100 text-shadow-md">TaxiBook</span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 h-full">
           {tabs.map((tab) => (
             <Link
               key={tab.name}
@@ -60,7 +60,7 @@ export default function Navbar() {
           {/* Contact CTA */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold shadow-sm
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blackGray text-white font-semibold shadow-sm
                        transition-[transform,box-shadow,filter] duration-200 ease-out hover:shadow-md hover:-translate-y-[1px] sm:hidden lg:block"
           >
             <PhoneOutlined className="text-lg" />
@@ -100,7 +100,7 @@ export default function Navbar() {
               href="/contact"
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-white font-semibold shadow-sm
-                         bg-gradient-to-r from-orange-600 to-orange-500 hover:shadow-md"
+                         bg-gradient-to-r from-primary to-primary/45 hover:shadow-md"
             >
               <PhoneOutlined className="text-lg" />
               Contact
