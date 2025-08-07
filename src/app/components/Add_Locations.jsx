@@ -9,6 +9,8 @@ import {
   ArrowRightOutlined,
   SwapOutlined,
 } from '@ant-design/icons';
+import FromTo from '../../../public/images/fromTo.png';
+import Image from 'next/image';
 
 export default function AddLocations({ onSubmitRoute }) {
   // (Paste your RoutePlanner logic here, just rename the function to AddLocations)
@@ -48,7 +50,7 @@ export default function AddLocations({ onSubmitRoute }) {
           <h3 className="!m-0 text-lg sm:text-xl !font-extrabold">Start travelling</h3>
         </div>
         <button type="button" onClick={swapStartEnd}
-          className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-white/90 ring-1 ring-white/20 bg-gray-300 cursor-pointer hover:bg-amber-600 hover:!text-white transition">
+          className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-white/90 ring-1 ring-white/20 bg-gray-600/80 cursor-pointer hover:bg-black/60 hover:!text-white transition">
           <SwapOutlined /> Swap
         </button>
       </div>
@@ -70,7 +72,7 @@ export default function AddLocations({ onSubmitRoute }) {
         </div>
 
         <div className="hidden sm:flex sm:col-span-1 items-end justify-center pb-1">
-          <ArrowRightOutlined className="text-white/70" />
+          <Image src={FromTo} alt="From to" width={50} className='!transform !scaleX-[-1]'/>
         </div>
 
         <div className="sm:col-span-2">
@@ -116,8 +118,8 @@ export default function AddLocations({ onSubmitRoute }) {
 
         <div className="flex items-center justify-between">
           <button type="button" onClick={addStop} disabled={stops.length >= 5}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-white bg-white/10 ring-1 ring-black hover:bg-white/15 disabled:opacity-50 transition">
-            <PlusCircleFilled className="text-amber-400" /> Add stop
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-white bg-gray-600/80 ring-1 ring-white hover:ring-black  hover:bg-black/60 disabled:opacity-50 transition">
+            <PlusCircleFilled className="text-white" /> Add stop
           </button>
           <span className="text-xs text-black">{stops.length}/5 stops</span>
         </div>
@@ -126,8 +128,8 @@ export default function AddLocations({ onSubmitRoute }) {
       {/* Submit */}
       <div className="flex items-center justify-end">
         <button type="submit" disabled={submitting || !start || !end}
-          className="relative inline-flex items-center gap-2 rounded-full px-6 py-3 !text-white
-                     bg-gradient-to-r from-gray-800 to-gray-500 hover:from-black hover:to-gray-600
+          className="relative inline-flex items-center gap-2 rounded-xl px-6 py-3 !text-white
+                     bg-black/70 hover:from-black hover:to-gray-600
                      shadow-lg hover:shadow-xl transition-transform duration-200 hover:-translate-y-[1px] active:translate-y-0 disabled:opacity-60">
           {submitting ? 'Submitting...' : 'Submit route'}
           <ArrowRightOutlined />
