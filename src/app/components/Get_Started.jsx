@@ -151,7 +151,7 @@
 
 'use client';
 import { useRouter } from 'next/navigation';
-import AddLocations from './AddLocations';
+import Add_Locations from './Add_Locations';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import {
@@ -310,15 +310,15 @@ export default function HeroGetStarted({
           </div> */}
           <div className='w-full max-w-full lg:max-w-3xl mx-auto'>
             {/* Tab Header */}
-            <div className='flex justify-center gap-2 bg-white/10 backdrop-blur-md rounded-t-2xl p-2 my-0.5 py-3 shadow-inner'>
+            <div className='flex justify-center gap-2 bg-white/65 backdrop-blur-md rounded-t-2xl p-2 my-0.5 py-3 shadow-inner'>
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActive(tab.key)}
-                  className={`px-6 py-2 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 
+                  className={`px-6 py-2 rounded-xl text-sm sm:text-base font-semibold outline-1 outline-amber-50 transition-all duration-300 
               ${
                 active === tab.key
-                  ? 'bg-yellow-200/70 !text-black/70 shadow-md text-shadow-2xs text-shadow-white scale-105'
+                  ? 'bg-white/50 !text-black/70 shadow-lg text-shadow-2xs text-shadow-white scale-105'
                   : 'bg-yellow-100/30 text-gray-700 hover:bg-yellow-200/30 hover:scale-105'
               }`}
                 >
@@ -327,15 +327,15 @@ export default function HeroGetStarted({
               ))}
             </div>
             {/* Content container */}
-            <div className='bg-yellow-100/40 backdrop-blur-[4px] ring-1 ring-white/15 p-4 sm:p-5 shadow-[0_10px_40px_rgba(0,0,0,.35)] rounded-b-2xl'>
-              {active === 'oneWay' && <AddLocations />}
+            <div className='bg-gray-200/40 backdrop-blur-[4px] ring-1 ring-white/15 p-4 sm:p-5 shadow-[0_10px_40px_rgba(0,0,0,.35)] rounded-b-2xl'>
+              {active === 'oneWay' && <Add_Locations />}
               {active === 'roundTrip' && (
-                <AddLocations
+                <Add_Locations
                   onSubmit={(data) => console.log('PreBooking:', data)}
                 />
               )}
               {active === 'schedule' && (
-                <AddLocations
+                <Add_Locations
                   onSubmit={(data) => console.log('Schedule:', data)}
                 />
               )}
